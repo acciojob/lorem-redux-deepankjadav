@@ -2,7 +2,8 @@ const initialState = {
     loading: false,
     data: null,
     error: null
-}
+  };
+  
 
 const reducer = (state = initialState,action) => {
     switch(action.type){
