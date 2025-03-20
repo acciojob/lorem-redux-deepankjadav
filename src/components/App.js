@@ -12,19 +12,22 @@ const App = () => {
     dispatch(fetchData());
   },[dispatch]);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (loading) return <h4>Loading...</h4>;
+  if (error) return <h4>Error: {error}</h4>;
   if (!data) return <p>No Data Available</p>;
   
   return (
-    <div>
-        {data ? (
-          <div>
-            <h1>{data.title}</h1>
-            <p>{data.body}</p>
+    <div className="container">
+      <h1>A Short Narration of Lorem Ipsum</h1>
+      <p>Below Contains a title and Body gotten from a random API, Please take your time to Review</p>
+      <div className="grid">
+        {data.map((item, index) => (
+          <div className="card" key={index}>
+            <h3><b>Title:</b> {item.title}</h3>
+            <p><b>Body:</b> {item.body}</p>
           </div>
-        ) : (null
-        )}
+        ))}
+      </div>
     </div>
   );
 };
